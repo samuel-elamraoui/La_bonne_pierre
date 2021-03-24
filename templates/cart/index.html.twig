@@ -58,10 +58,13 @@
         </tbody>
     </table>
     <div>
-        Nombre de produit :</div>{{ cart|length }} <br/>
-        Total de mon panier : </b> {{ (total / 100)| number_format(2, ',', '.') }} €
-    <a>Valider le panier</a>
-    </div>
+        Nombre de produit :
+    </div>{{ cart|length }} <br/>
+        <b>Total de mon panier : </b>
+        {{ (total / 100)| number_format(2, ',', '.') }} €
+
+    <a href="{{ path('order') }}">Valider le panier</a>
+
     {% else %}
         <hr>
         <p>Votre panier est vide</p>

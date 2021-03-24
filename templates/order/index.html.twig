@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Valider ma commande de cailloux{% endblock %}
+
+{% block content %}
+    <h2>Je passe commande</h2>
+    <p>Choississez les détails de la livraison</p>
+    <br/>
+    <hr>
+
+    <div>
+        <div>
+            {% set formHtml %}
+                {{ form(form) }}
+            {% endset %}
+
+            {{ formHtml|replace({'[br]' : '<br/>'})|raw }}
+            <b>Choisir mon transporteur</b>
+        </div>
+        <div>
+            <b>Récapitulatif de ma commande de cailloux</b>
+            <br/>
+            <b>Payer</b>
+        </div>
+    </div>
+{% endblock %}
