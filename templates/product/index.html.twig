@@ -1,24 +1,26 @@
-{% extends 'base.html.twig' %}
+{% extends 'home.html.twig' %}
 
-{% block title %} La bonne pierre : Nos cailloux{% endblock %}
+{% block title %}Nos cailloux{% endblock %}
 
 {% block content %}
-    <div>
-        <h1>Nos cailloux connard</h1>
+    <div style="padding-top: 2rem" class="container">
+        <h1>Nos cailloux</h1>
         <div>
-            <h3>Filtrer</h3>
+
                 {{ form(form) }}
         </div>
-
-        <div>
-            <h3>Nos cailloux</h3>
-            <div>
+        <hr>
+        <div style="padding: 2rem">
+            <div class="row">
                 {% for product in products %}
-                    <div>
-                        <a href="{{ path('product', {'slug' : product.slug} ) }}"><img src="/uploads/{{ product.images }}" alt=" {{ product.name }}"></a>
-                        <h5>{{ product.name }}</h5>
-                        <span>{{ product.subtitle }}</span>
-                        <span>{{ (product.price / 100)| number_format(2, ',', '.') }} €</span>
+                    <div class="col-md-4 card" style="margin-bottom: 0.5rem; padding: 1rem">
+                        <div class="text-center">
+                            <a href="{{ path('product', {'slug' : product.slug} ) }}" >
+                                <img class="img-fluid" style="height: 250px; object-fit: cover" src="/uploads/{{ product.images }}" alt="{{ product.name }}">
+                            </a>
+                            <h5 style="margin-top: 1rem">{{ product.name }}</h5>
+                            <span>{{ (product.price / 100)| number_format(2, ',', '.') }} €</span>
+                        </div>
                     </div>
                 {% endfor %}
             </div>

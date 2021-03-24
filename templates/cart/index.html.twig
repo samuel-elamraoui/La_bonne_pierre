@@ -1,69 +1,81 @@
-{% extends 'base.html.twig' %}
+{% extends 'home.html.twig' %}
 
 {% block title %}Mon panier{% endblock %}
 
 {% block content %}
-<h1>Mon panier</h1>
-    Retrouvez vos produits
-    <hr>
-    MON PANIER
-    {% if cart|length >0 %}
-    <table class="table">
-        <thead>
-        <tr>
+    <div class="container" style="margin-top: 2rem">
 
-            <th scope="col">Produit</th>
-            <th scope="col"></th>
-            <th scope="col">Quantité</th>
-            <th scope="col">Prix</th>
-            <th scope="col">Total</th>
-        </tr>
-        </thead>
-        <tbody>
-        {% set total = null %}
-        {% for product in cart %}
-        <tr>
-            <th scope="row">1</th>
-            <td>
-                <img src="/uploads/{{ product.product.images }}" alt="{{product.product.name  }}" height="75px"><br/>
+        <h1>Mon panier</h1>
+        {% if cart|length >0 %}
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">Produit</th>
+                    <th scope="col"></th>
+                    <th scope="col">Quantité</th>
+                    <th scope="col">Prix</th>
+                    <th scope="col">Total</th>
+                </tr>
+                </thead>
+                <tbody style="margin-bottom: 1rem">
+                {% set total = null %}
+                {% for product in cart %}
+                    <tr>
+                        <td>
+                            {{ product.product.name }}<br/>
+                            <small>{{ product.product.subtitle }}</small>
+                        </td>
+                        <td>
+                            <img src="/uploads/{{ product.product.images }}" alt="{{ product.product.name }}"
+                                 height="75px"><br/>
 
-            </td>
-            <td>
-                {{product.product.name }}<br/>
-                <small>{{product.product.subtitle }}</small>
-            </td>
-            <td>
-                <a href="{{ path('decrease_to_cart',{'id':product.product.id}) }}">
-                    <img src="{{ asset('assets/img/minus.png') }}" height="12px" alt="suprimer mon produit">
-                </a>
+                        </td>
 
-                {{product.quantity}}
-                <a href="{{ path('add_to_cart',{'id': product.product.id }) }}">
-                    <img src="{{ asset('assets/img/add.png') }}" height="12px" alt="ajouter">
-                </a>
+                        <td>
+                            <a href="{{ path('decrease_to_cart',{'id':product.product.id}) }}">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" color="black"
+                                     fill="currentColor" class="bi bi-dash" viewBox="0 0 16 16">
+                                    <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"/>
+                                </svg>
+                            </a>
 
-            </td>
-            <td>{{ (product.product.price / 100)| number_format(2, ',', '.') }} € </td>
-            <td>{{ ((product.product.price*product.quantity) / 100)| number_format(2, ',', '.') }} € </td>
-            <td>
-                <a href="{{ path('delete_to_cart',{'id': product.product.id}) }}">
-                    <img src="{{ asset('assets/img/delete.png') }}" height="20px" alt="suprimer mon produit">
-                </a>
+                            {{ product.quantity }}
+                            <a href="{{ path('add_to_cart',{'id': product.product.id }) }}">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" color="black"
+                                     fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+                                    <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                                </svg>
+                            </a>
 
-            </td>
-        </tr>
-            {% set total = total + (product.product.price*product.quantity) %}
-        {% endfor %}
+                        </td>
+                        <td>{{ (product.product.price / 100)| number_format(2, ',', '.') }} €</td>
+                        <td>{{ ((product.product.price*product.quantity) / 100)| number_format(2, ',', '.') }} €</td>
+                        <td>
+                            <a href="{{ path('delete_to_cart',{'id': product.product.id}) }}">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
+                                     class="bi bi-trash" color="red" viewBox="0 0 16 16">
+                                    <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                                    <path fill-rule="evenodd"
+                                          d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                                </svg>
+                            </a>
 
-        </tbody>
-    </table>
-    <div>
-        Nombre de produit :</div>{{ cart|length }} <br/>
-        Total de mon panier : </b> {{ (total / 100)| number_format(2, ',', '.') }} €
-    <a>Valider le panier</a>
+                        </td>
+                    </tr>
+                    {% set total = total + (product.product.price*product.quantity) %}
+                {% endfor %}
+
+                </tbody>
+            </table>
+            <div style="margin-top: 3rem; margin-bottom: 2rem">
+                Nombre de produit : {{ cart|length }} <br/>
+                Total de mon panier : </b> {{ (total / 100)| number_format(2, ',', '.') }} €
+                <br>
+                <a>Valider le panier</a>
+            </div>
+        {% else %}
+            <hr>
+            <p>Votre panier est vide</p>
+        {% endif %}
     </div>
-    {% else %}
-        <hr>
-        <p>Votre panier est vide</p>
-    {% endif %}
 {% endblock %}

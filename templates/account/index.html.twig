@@ -1,16 +1,17 @@
-{% extends 'base.html.twig' %}
+{% extends 'home.html.twig' %}
 
 {% block title %}Mon compte - La bonne pierre{% endblock %}
 
 {% block content %}
+    <div class="container" style="margin-top: 2rem">
+        <h1>Mon compte</h1>
 
-    <h1>Mon compte</h1>
+        Bonjour {{ app.user.firstname }}, c'est un plaisir de vous revoir !<br>
+        <hr>
 
-    bienvenue{{ app.user.firstname }} dans votre compte.<br>
-    <hr>
-
-    <a href="{{ path('account_password') }}">modifier mon mot de passe</a>
-    <a href="{{ path('account_adress') }}">Gérer mes adresses</a>
+        <a href="{{ path('account_password') }}"> Modifier mon mot de passe</a> <br>
+        <a href="{{ path('account_adress') }}"> Gérer mes adresses</a>
+    </div>
 
 
 {% endblock %}
