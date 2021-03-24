@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} La bonne pierre : Nos cailloux{% endblock %}
+
+{% block content %}
+    <div>
+        <h1>Nos cailloux connard</h1>
+        <div>
+            <h3>Filtrer</h3>
+                {{ form(form) }}
+        </div>
+
+        <div>
+            <h3>Nos cailloux</h3>
+            <div>
+                {% for product in products %}
+                    <div>
+                        <a href="{{ path('product', {'slug' : product.slug} ) }}"><img src="/uploads/{{ product.images }}" alt=" {{ product.name }}"></a>
+                        <h5>{{ product.name }}</h5>
+                        <span>{{ product.subtitle }}</span>
+                        <span>{{ (product.price / 100)| number_format(2, ',', '.') }} €</span>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
