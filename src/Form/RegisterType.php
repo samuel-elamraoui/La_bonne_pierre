@@ -25,7 +25,7 @@ class RegisterType extends AbstractType
                     'max'=>30
                 ]),
                 'attr'=>[
-                    'placeholder'=>'Merci de saisir votre prénom'
+                    'placeholder'=>'Prénom'
                 ]
             ])
             ->add('lastname', TextType::class,  [
@@ -35,7 +35,7 @@ class RegisterType extends AbstractType
                     'max'=>30
                 ]),
                 'attr'=>[
-                    'placeholder'=>'Merci de saisir votre nom'
+                    'placeholder'=>'Nom'
                 ]
             ])
             ->add('email', EmailType::class, [
@@ -45,7 +45,7 @@ class RegisterType extends AbstractType
                     'max'=>50
                 ]),
                 'attr'=>[
-                    'placeholder'=>'Merci de saisir votre email'
+                    'placeholder'=>'Email'
                 ]
             ])//input
             ->add('password', RepeatedType::class, [
@@ -53,8 +53,8 @@ class RegisterType extends AbstractType
                 'invalid_message'=> 'Le mot de passe et la confirmation doivent être identique.',
                 'label' => 'Votre mot de passe',
                 'required'=> true,
-                'first_options'=>['label'=>'Mot de passe', 'attr'=>['placeholder'=> 'Merci de saisir votre mot de passe']],
-                'second_options'=>['label'=>'Confirmez votre mot de passe', 'attr'=>['placeholder'=> 'Merci de saisir une nouvelle fois votre mot de passe']]
+                'first_options'=>['label'=>'Mot de passe', 'attr'=>['placeholder'=> 'Mot de passe']],
+                'second_options'=>['label'=>'Confirmez votre mot de passe', 'attr'=>['placeholder'=> 'Confirmer mot de passe']]
             ])
             ->add('submit' ,SubmitType::class, [
                 'label' => "S'inscrire"
