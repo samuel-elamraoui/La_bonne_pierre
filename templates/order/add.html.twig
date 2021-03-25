@@ -1,0 +1,68 @@
+{% extends 'home.html.twig' %}
+
+{% block title %}Paiement de cailloux{% endblock %}
+
+{% block content %}
+    <h2>Mon récapitulatif</h2>
+    <p>Vérifiez vos cailloux et vos informations avant de sortir le porte monnaie</p>
+    <br/>
+    <hr>
+
+    <div>
+        <div>
+            <b>Adresse de livraison</b>
+            <br/>
+
+            <div>
+                {{ delivery|raw }}
+            </div>
+
+            <hr>
+            <strong>Mon transporteur</strong>
+            <div>
+                {{ carrier.name }}<br/>
+                {{ carrier.description }}<br/>
+                {{ carrier.price|number_format(2, ',', '.') }} €<br/>
+            </div>
+        </div>
+        <div>
+            <div>
+                <b>Ma commande de cailloux</b>
+            </div>
+            <div>
+
+                {% set total = null %}
+                {% for key,product in cart %}
+                    <div class="{% if key > 0 %} {% endif %}">
+                        <div>
+                            <img src="/uploads/{{ product.product.images }}" alt="{{ product.product.name }}">
+                        </div>
+                        <div>
+                            {{ product.product.name }}
+                        </div>
+                        <div>
+                            <small>
+                                {{ product.product.subtitle }}
+                                <br/>
+                                x {{ product.quantity }}
+                            </small>
+                        </div>
+                        <div>
+                            {{ ((product.product.price*product.quantity) / 100)| number_format(2, ',', '.') }} €
+                        </div>
+                    </div>
+                    {% set total = total + (product.product.price*product.quantity) %}
+                {% endfor %}
+                <br/>
+            </div>
+
+            <hr>
+            <strong>Sous total :</strong> {{ (total / 100)| number_format(2, ',', '.') }} € <br/>
+            <strong>Livraison :</strong> {{ (carrier.price)| number_format(2, ',', '.') }} €
+
+            <hr>
+            <strong>Sous total :</strong> {{ ((total / 100)+carrier.price)| number_format(2, ',', '.') }} €
+            <a href={{ path('order_validate',{'id':app.user.id}) }}>Payer | {{ ((total / 100)+carrier.price)|number_format(2, ',', '.') }} €</a>
+        </div>
+    </div>
+{% endblock %}

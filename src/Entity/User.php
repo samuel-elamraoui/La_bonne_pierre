@@ -209,6 +209,11 @@ class User implements UserInterface
         return $this->firstname;
     }
 
+    public function getFullName(): string
+    {
+        return  $this->getFirstname().' '.$this->getLastname();
+    }
+
     public function setFirstname(string $firstname): self
     {
         $this->firstname = $firstname;
@@ -227,4 +232,5 @@ class User implements UserInterface
 
         return $this;
     }
+
 }

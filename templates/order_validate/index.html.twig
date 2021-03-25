@@ -1,0 +1,15 @@
+{% extends 'home.html.twig' %}
+
+{% block title %}Hello OrderValidateController!{% endblock %}
+
+{% block content %}
+    <h2>Confirmation de commande</h2>
+    <p>
+        Bonjour <strong>{{ app.user.firstname }} {{ app.user.lastname }}</strong>,<br/><br/>
+        Nous vous remercions pour votre commande.
+        Une confirmation vient de vous être envoyée par email à l'adresse <strong>{{ app.user.email }}</strong>.
+
+    Pour suivre votre commande, rendez-vous dans votre <a href="account_order">compte</a>.
+    </p>
+
+{% endblock %}

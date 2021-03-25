@@ -1,0 +1,51 @@
+{% extends 'home.html.twig' %}
+
+{% block title %}Valider ma commande de cailloux{% endblock %}
+
+{% block content %}
+    <h2>Je passe commande</h2>
+    <p>Choississez les détails de la livraison</p>
+    <br/>
+    <hr>
+
+    <div>
+        <div>
+            {% set formHtml %}
+                {{ form_start(form,{action:path('order_recap') }) }}
+                    {{ form_label(form.adresses,'Choissiez votre adresse de livraison') }}
+                    <a href="{{ path('account_adress_add') }}">Ajouter une nouvelle adresse</a>
+                {{ form_end(form) }}
+            {% endset %}
+
+            {{ formHtml|replace({'[br]' : '<br/>'})|raw }}
+            <b>Choisir mon transporteur</b>
+        </div>
+        <div>
+            <div>
+                <b>Récapitulatif de ma commande de cailloux</b>
+                <p>Retrouver le récapitulatif de vos cailloux</p>
+            </div>
+            <div>
+                {% for key,product in cart %}
+                    <div class="{% if key > 0  %} {% endif %}">
+                        <div>
+                            <img src="/uploads/{{ product.product.images }}" alt="{{ product.product.name }}">
+                        </div>
+                        <div>
+                            {{ product.product.name }}
+                        </div>
+                        <div>
+                            <small>
+                                {{ product.product.subtitle }}
+                            </small>
+                        </div>
+                        <div>
+                            x {{ product.quantity }}
+                        </div>
+                    </div>
+                {% endfor %}
+                <br/>
+            </div>
+        </div>
+    </div>
+{% endblock %}
