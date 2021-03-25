@@ -6,7 +6,7 @@
         <ol class="carousel-indicators">
             <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
             <li data-target="#myCarousel" data-slide-to="1"></li>
-            <li data-target="#myCarousel" data-slide-to="2"></li>
+{#            <li data-target="#myCarousel" data-slide-to="2"></li>#}
         </ol>
         <div class="carousel-inner">
             <div class="carousel-item active" data-mdb-interval="10000">
@@ -20,7 +20,7 @@
                     <div class="carousel-caption text-left" style="width: 40%; background-color: rgba(0,0,0,0.25); padding: 1rem">
                         <h1>Dernier arrivage !</h1>
                         <p>Les plus belles games de la plage du Saint-Selon sont arrivées !</p>
-                        <p><a class="btn btn-lg btn-primary" href="#" role="button">Voir les nouveautés</a></p>
+                        <p><a class="btn btn-lg btn-primary" href="/nos-produits" role="button">Voir les nouveautés</a></p>
                     </div>
                 </div>
             </div>
@@ -33,28 +33,28 @@
                 />
                 <div class="container">
                     <div class="carousel-caption text-left" style="width: 40%; background-color: rgba(0,0,0,0.5); padding: 1rem">
-                        <h1>La gamme de cailloux sur</h1>
+                        <h1>La gamme de cailloux sûr</h1>
                         <p>Optez pour la qualité et le gris des cailloux du cap d'Agde. </p>
-                        <p><a class="btn btn-lg btn-primary" href="#" role="button">Les classics</a></p>
+                        <p><a class="btn btn-lg btn-primary" href="/nos-produits" role="button">Les classics</a></p>
                     </div>
                 </div>
             </div>
-            <div class="carousel-item" data-mdb-interval="10000">
-                <img
-                        src="{{ asset('images/rock_3.jpg') }}"
-                        class="w-100"
-                        alt="..."
-                        style="object-fit: cover; filter: grayscale(0.5)"
-                />
-                <div class="container">
-                    <div class="carousel-caption text-left" style="color: black; width: 40%">
-                        <h1>One more for good measure.</h1>
-                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta
-                            gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                        <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
-                    </div>
-                </div>
-            </div>
+{#            <div class="carousel-item" data-mdb-interval="10000">#}
+{#                <img#}
+{#                        src="{{ asset('images/rock_3.jpg') }}"#}
+{#                        class="w-100"#}
+{#                        alt="..."#}
+{#                        style="object-fit: cover; filter: grayscale(0.5)"#}
+{#                />#}
+{#                <div class="container">#}
+{#                    <div class="carousel-caption text-left" style="color: black; width: 40%">#}
+{#                        <h1>One more for good measure.</h1>#}
+{#                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta#}
+{#                            gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>#}
+{#                        <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
         </div>
         <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -113,19 +113,12 @@
 
         <div class="row featurette">
             <div class="col-md-7">
-                <h2 class="featurette-heading">First featurette heading. <span
-                            class="text-muted">It’ll blow your mind.</span></h2>
-                <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis
-                    euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus,
-                    tellus ac cursus commodo.</p>
+                <h2 class="featurette-heading">Une envie de partage. <span
+                            class="text-muted">D'un retour aux sources</span></h2>
+                <p class="lead">On sous estime grandement les effets des cailloux dans nos vies. Qu'il soit plat ou bien arrondi, chacun de nous trouvera le rocker qui est en lui. </p>
             </div>
             <div class="col-md-5">
-                <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
-                     height="500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"
-                     focusable="false" role="img" aria-label="Placeholder: 500x500"><title>Placeholder</title>
-                    <rect width="100%" height="100%" fill="#eee"/>
-                    <text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text>
-                </svg>
+                <img src="{{ asset('images/rock_4.jpg') }}" alt="caillasses" class="img-fluid">
             </div>
         </div>
 
@@ -133,40 +126,33 @@
 
         <div class="row featurette">
             <div class="col-md-7 order-md-2">
-                <h2 class="featurette-heading">Oh yeah, it’s that good. <span
-                            class="text-muted">See for yourself.</span></h2>
-                <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis
-                    euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus,
-                    tellus ac cursus commodo.</p>
+                <h2 class="featurette-heading">Se chercher. <span
+                            class="text-muted">Se trouver.</span></h2>
+                <p class="lead"> L'equilibre et la force se complete en ses temps difficile. Il faut se retrouver avant tout. Chercher et chassez ses démons. Ne dit on point "il y a anguille sous roche" ?</p>
             </div>
             <div class="col-md-5 order-md-1">
-                <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
-                     height="500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"
-                     focusable="false" role="img" aria-label="Placeholder: 500x500"><title>Placeholder</title>
-                    <rect width="100%" height="100%" fill="#eee"/>
-                    <text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text>
-                </svg>
+                <img src="{{ asset('images/rock_5.jpg') }}" alt="caillasses" class="img-fluid">
             </div>
         </div>
 
-        <hr class="featurette-divider">
+{#        <hr class="featurette-divider">#}
 
-        <div class="row featurette">
-            <div class="col-md-7">
-                <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
-                <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis
-                    euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus,
-                    tellus ac cursus commodo.</p>
-            </div>
-            <div class="col-md-5">
-                <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
-                     height="500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"
-                     focusable="false" role="img" aria-label="Placeholder: 500x500"><title>Placeholder</title>
-                    <rect width="100%" height="100%" fill="#eee"/>
-                    <text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text>
-                </svg>
-            </div>
-        </div>
+{#        <div class="row featurette">#}
+{#            <div class="col-md-7">#}
+{#                <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>#}
+{#                <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis#}
+{#                    euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus,#}
+{#                    tellus ac cursus commodo.</p>#}
+{#            </div>#}
+{#            <div class="col-md-5">#}
+{#                <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"#}
+{#                     height="500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"#}
+{#                     focusable="false" role="img" aria-label="Placeholder: 500x500"><title>Placeholder</title>#}
+{#                    <rect width="100%" height="100%" fill="#eee"/>#}
+{#                    <text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text>#}
+{#                </svg>#}
+{#            </div>#}
+{#        </div>#}
 
         <hr class="featurette-divider">
 

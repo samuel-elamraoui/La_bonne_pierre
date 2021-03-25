@@ -48,11 +48,21 @@
 
         </div>
         <div>
+{#            {{ dump(app.user) }}#}
             {% if app.user %}
-                <a href="{{ path('account') }}"> Mon compte</a> |  <a href="{{ path('app_logout') }}"> Déconnexion</a>
+                {% if app.user.roles[0] is same as("ROLE_ADMIN") %}
+                    <a href="{{ path('account') }}"> Dashboard </a> |  <a href="{{ path('app_logout') }}">
+                    Déconnexion</a>
+                {% elseif app.user %}
+                    <a href="{{ path('account') }}"> Mon compte</a> |  <a href="{{ path('app_logout') }}">
+                    Déconnexion</a>
+
+                {% endif %}
             {% else %}
-                <a href="{{ path('app_login') }}"> Connexion</a> |  <a href="{{ path('register') }}"> Inscription</a>
+                <a href="{{ path('app_login') }}"> Connexion</a> |  <a href="{{ path('register') }}">
+                Inscription</a>
             {% endif %}
+
         </div>
         <a href="{{ path('cart') }}" style="margin-left: 1rem">
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-cart"
@@ -73,7 +83,7 @@
 </main>
 <div class="text-center text-lg-start footer ">
     <div class="text-center p-3" style="">
-        © 2020 Copyright:
+        © 2020 Tout droit réservé :
         <a class="text-dark" href="https://www.cailloux-provence.com/">Yves Caillou et son épicerie</a>
     </div>
 </div>
