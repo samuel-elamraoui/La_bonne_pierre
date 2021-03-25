@@ -62,12 +62,12 @@ class OrderController extends AbstractController
             $delivery_content .= '</br>'.$delivery->getPhone();
 
             if ($delivery->getCompany()) {
-                $delivery_content = '</br>'.$delivery->getCompany();
+                $delivery_content .= '</br>'.$delivery->getCompany();
             }
 
-            $delivery_content = '</br>'.$delivery->getAddress();
-            $delivery_content = '</br>'.$delivery->getPostal().' '.$delivery->getCity();
-            $delivery_content = '</br>'.$delivery->getCountry();
+            $delivery_content .= '</br>'.$delivery->getAddress();
+            $delivery_content .= '</br>'.$delivery->getPostal().' '.$delivery->getCity();
+            $delivery_content .= '</br>'.$delivery->getCountry();
 
             $order = new Order();
             $order->setUser($this->getUser());
