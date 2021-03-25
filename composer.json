@@ -42,8 +42,7 @@
         "symfony/web-link": "5.2.*",
         "symfony/yaml": "5.2.*",
         "twig/extra-bundle": "^2.12|^3.0",
-        "twig/twig": "^2.12|^3.0",
-      "ext-http": "*"
+        "twig/twig": "^2.12|^3.0"
     },
     "require-dev": {
         "symfony/browser-kit": "^5.2",
@@ -102,7 +101,5 @@
                 "Provide flag to force annotation in make entity command": "https://raw.githubusercontent.com/vklux/maker-bundle-force-annotation/master/maker-force-annotation-flag.patch"
             }
         }
-    },
-    "name": "",
-    "description": ""
+    }
 }

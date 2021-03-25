@@ -1,0 +1,11 @@
+{% extends 'home.html.twig' %}
+
+{% block title %}Page introuvable - La bonne pierre{% endblock %}
+
+{% block content %}
+    <div>
+        <h2>Page introuvable</h2>
+        <p>Oups, non accessible...</p>
+        <a href="{{ path('home') }}">Revenir à l'accueil</a>
+    </div>
+{% endblock %}
