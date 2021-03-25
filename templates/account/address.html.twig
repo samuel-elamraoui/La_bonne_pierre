@@ -9,7 +9,7 @@
 <hr>
 {% if app.user.adresses|length ==0 %}
  <p class="text-center">
-  Vous n'avez pas renseigné d'adresse, <a href="">Ajouter une adresse.</a>
+  Vous n'avez pas renseigné d'adresse, <a href="{{ path('account_adress_add') }}">Ajouter une adresse.</a>
  </p>
 {% else %}
  <div class="row">
@@ -30,4 +30,4 @@
  </div>
 
 {% endif %}
-{% endblock %}
+{% endblock %}git
