@@ -51,7 +51,7 @@
 {#            {{ dump(app.user) }}#}
             {% if app.user %}
                 {% if app.user.roles[0] is same as("ROLE_ADMIN") %}
-                    <a href="{{ path('account') }}"> Dashboard </a> |  <a href="{{ path('app_logout') }}">
+                    <a href="{{ path('admin') }}"> Dashboard </a> |  <a href="{{ path('app_logout') }}">
                     Déconnexion</a>
                 {% elseif app.user %}
                     <a href="{{ path('account') }}"> Mon compte</a> |  <a href="{{ path('app_logout') }}">
