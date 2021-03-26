@@ -17,11 +17,10 @@ class OrderValidateController extends AbstractController
         $this->entityManager = $entityManager;
     }
     /**
-     * @Route("/commander/merci/{id}", name="order_validate")
+     * @Route("/commander/merci", name="order_validate")
      */
-    public function index($id,Cart $cart): Response
+    public function index(Cart $cart): Response
     {
-        $usersorder = $this->entityManager->getRepository(User::class)->findOneById($id)->getOrders();
 
         return $this->render('order_validate/index.html.twig', [
             'cart' => $cart->getFull(),
